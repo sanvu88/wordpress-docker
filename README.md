@@ -6,7 +6,7 @@
 
 ## About Hostvn.net WordPress
 
-Hostvn.net WordPress is a docker version pre-installed with Nginx, php-fpm and WordPress with the best WordPress optimization and security configurations.
+Hostvn.net - WordPress is Docker Images, pre-installed with Nginx, php-fpm and WordPress, with the best security configurations and optimization for WordPress
 
 ## Quick reference
 
