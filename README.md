@@ -13,6 +13,7 @@ Hostvn.net - WordPress is Docker Images, pre-installed with Nginx, php-fpm and W
 - Maintained by: <a href="https://hostvn.net">Hostvn.net</a>
 - Docker hub: https://hub.docker.com/r/hostvn/wordpress
 - WordPress: https://wordpress.org/
+- WP-CLI: https://wp-cli.org/
 - Nginx Brotli module: https://github.com/google/ngx_brotli
 - Nginx header more module: https://github.com/openresty/headers-more-nginx-module
 
