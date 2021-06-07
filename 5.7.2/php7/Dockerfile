@@ -179,7 +179,7 @@ RUN apt-get -y install nano wget unzip zlib1g-dev php7.4 php7.4-fpm php7.4-ldap 
             php7.4-mbstring php7.4-common php7.4-soap \
             php7.4-curl php7.4-bcmath php7.4-snmp php7.4-pspell \
             php7.4-gmp php7.4-intl php7.4-imap php7.4-enchant \
-            php7.4-xmlrpc php7.4-tidy php7.4-opcache php7.4-cli \
+            php7.4-xmlrpc php7.4-tidy php7.4-opcache \
             php7.4-dev php7.4-imagick php7.4-sqlite3 php7.4-json
 
 COPY config/php/00-hostvn-custom.ini /etc/php/7.4/cli/conf.d
@@ -204,12 +204,14 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 ## Download Wordpress
-RUN wget https://wordpress.org/wordpress-5.7.2.tar.gz -P /usr/share/nginx/html
+COPY wordpress-5.7.2.tar.gz /usr/share/nginx/html
 RUN cd /usr/share/nginx/html && tar -xvf /usr/share/nginx/html/wordpress-5.7.2.tar.gz
 RUN rm -rf /usr/share/nginx/html/wordpress-5.7.2.tar.gz
 RUN cd /usr/share/nginx/html/wordpress && mv * /usr/share/nginx/html && cd /usr/share/nginx/html \
     && rm -rf wordpress readme.html license.txt index.html 50x.html
 RUN chown -R nginx. /usr/share/nginx
+RUN mkdir -p /var/lib/php/session
+RUN chown -R nginx. /var/lib/php/session
 
 RUN rm -rf /opt/*
 RUN apt-get autoremove --purge -y && apt-get autoclean -y && apt-get clean -y \
